@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>WordtoPinyin</title>
+</head>
+<style>
+	#text{
+		width: 300px;
+		height: 500px;
+	}
+	#text2{
+	width: 300px;
+	height: 500px;
+}
+</style>
+<body>
+	<div>
+		<textarea id="text"></textarea>
+		<button id="btn">转换</button>
+		<textarea id="text2"></textarea>
+	</div>
+</body>
+<script src="script/vender/MooTools-Core-1.6.0.js"></script>
+<script src="script/vender/pinyin.js"></script>
+<script>
+
+		var area = window.document.getElementById('text');
+		var area2 = window.document.getElementById('text2');
+		var btn = window.document.getElementById('btn');
+		var pinyin = new Pinyin();
+			btn.onclick= function WordtoPinyin() {
+				
+				var temp=area.value;
+					temp=temp.toString();
+				var wordCount= temp.length;
+				var temps=temp.split("",wordCount);
+				var pin=pinyin.getFullChars(temps.toString());
+					pin=pin.split(",",wordCount);
+					for (var i =0; i < pin.length; i++) {
+					pin[i]=pin[i].substring(0,1);
+					console.log(pin[i]);
+						}
+					pin=pin.toString();
+					pin=pin.replace(/,/g,"");
+					pin=pin.toLowerCase();
+				area2.value=pin;
+			}
+
+</script>
+</html>
