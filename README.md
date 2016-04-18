@@ -1,1 +1,2 @@
 #ChineseToPinyin
+#lisence:MIT
